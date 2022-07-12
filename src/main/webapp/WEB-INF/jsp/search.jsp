@@ -54,8 +54,9 @@
 
 								</div>
 
-				</div>
+
             </c:forEach>
+				</div>
 
            
             </section>
