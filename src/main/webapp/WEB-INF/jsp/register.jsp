@@ -18,7 +18,7 @@
 				</div>
 				<!-- branding -->
 				<ul class="navbar">
-					<li><a href="/goToHome">home</a></li>
+					<li><a href="/home">home</a></li>
 					<li><a href="/goToSearch">search</a></li>
 					<li><a href="">linkedIn</a></li>
 
@@ -42,15 +42,15 @@
 	 <div class="container tagline">
 	 <em>Register User</em><br/>
     		 <form:form method="post" action="/registeruser" modelAttribute="newuser">
-    			<label>Username</label> <form:input path="username" type="text" /><br/>
-    			<label>Password</label> <form:input path="password" type="password" /><br/>
-    			<label>First Name</label> <form:input path="firstName" type="text" /><br/>
+    			<label>Username</label> <form:input path="username" type="text" /><form:errors cssClass="error" path="username"/><br/>
+    			<label>Password</label> <form:input path="password" type="password" /><form:errors cssClass="error" path="password"/> <br/>
+    			<label>First Name</label> <form:input path="firstName" type="text" /><form:errors cssClass="error" path="firstName"/><br/>
     			<label>Last Name</label> <form:input path="lastName" type="text" /><br/>
     			<label>What do you want to do? </label> 
 				<form:radiobutton path="activity" id="activity" value="sport"/>Play a Sport?
-				<form:radiobutton path="activity" id="activity" value="gym"/>Hit the Gym?<br/>
+				<form:radiobutton path="activity" id="activity" value="gym"/>Hit the Gym? <form:errors path="activity" cssClass="error"/><br/>
     			<label>Date of birth</label>
-    			<form:input path="dateOfBirth" type="date" /><br/>
+    			<form:input path="dateOfBirth" type="date" /><form:errors cssClass="error" path="dateOfBirth"/><br/>
     			<label>Gender</label>
     			<form:select path="gender" items="${genderItems}"/>
     			<br/>
