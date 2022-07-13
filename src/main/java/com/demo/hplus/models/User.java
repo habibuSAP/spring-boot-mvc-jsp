@@ -1,9 +1,13 @@
 package com.demo.hplus.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 
 @Entity
@@ -12,12 +16,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(min=6, message="{username.not.empty}" )
     private String username;
+    @Pattern(regexp = "((?=.*[A-Z]).{6,9})", message = "{password.pattern}")
     private String password;
+    @NotEmpty(message = "{firstname.not.empty}")
     private String firstName;
     private String lastName;
-    private String dateOfBirth;
-    private String gender;
+    private Date dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    @NotEmpty(message = "{activity.not.empty}")
     private  String activity;
 
     public Long getId() {
@@ -60,19 +69,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dataOfBirth) {
+    public void setDateOfBirth(Date dataOfBirth) {
         this.dateOfBirth = dataOfBirth;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
