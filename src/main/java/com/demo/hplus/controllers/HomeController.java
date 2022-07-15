@@ -1,14 +1,12 @@
 package com.demo.hplus.controllers;
 
 
+import com.demo.hplus.models.Login;
 import com.demo.hplus.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import javax.swing.*;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,6 +37,7 @@ public class HomeController {
         System.out.println("going to registration page");
         return "register";
     }
+/*      Move to global exception handler
 
     @ModelAttribute("newuser")
     public User getDefaultUser(){
@@ -49,4 +48,7 @@ public class HomeController {
     public List<String> getGenderItems(){
         return Arrays.asList(new String[]{"Male", "Female"});
     }
+
+    @ModelAttribute("login")
+    public Login getDefaultLogin(){ return new Login(); }*/
 }
