@@ -6,32 +6,33 @@ import com.demo.hplus.models.User;
 import com.demo.hplus.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
+@SessionAttributes("login")
 public class LoginController {
 
     @Autowired
     private UserRepository userRepository;
 
     @PostMapping("/login")
-    public String login(@ModelAttribute("login")Login login){
+    public String login(@ModelAttribute("login")Login login, HttpSession httpSession){
+
+        httpSession.setMaxInactiveInterval(5000);
         System.out.println("in login controller");
         User user = userRepository.searchByUsername(login.getUsername());
         if( user == null){
             throw new ApplicationException("User not found");
         }
-        return "search";
+        return "forward:/userprofile";
     }
 
-   /*
-    Move to global exception handler
-   @ExceptionHandler(ApplicationException.class)
-    public String handleException(){
-        System.out.println("in exception handler login contro");
-        return "error";
-    }
-    */
+   @GetMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.invalidate();
+//       System.out.println("Verify the user session " + httpSession.getAttribute("login"));
+       return "login";
+   }
 }
