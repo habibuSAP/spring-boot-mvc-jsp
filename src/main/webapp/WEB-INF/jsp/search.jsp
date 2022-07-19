@@ -18,10 +18,10 @@
 				</div>
 				<!-- branding -->
 				<ul class="navbar">
-                                <li><a href="/home">home</a></li>
-                                <li><a href="/goToLogin">login</a></li>
-                                <li><a href="/goToSearch">search</a></li>
-                                <li><a href="#">linkedin</a></li>
+                                <li><a href="/home">Home</a></li>
+                                <li><a href="/goToLogin">Login</a></li>
+                                <li><a href="/goToSearch">Search</a></li>
+                                <li><a href="/redirectToLinkedIn" target="_blank">LinkedIn</a></li>
                             </ul><!-- navbar -->
 				<!-- navbar -->
 			</div>

@@ -16,9 +16,9 @@
 				</div>
 				<!-- branding -->
 				<ul class="navbar">
-					<li><a href="/home">home</a></li>
-					<li><a href="/goToSearch">search</a></li>
-					<li><a href="#">linkedIn</a></li>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/goToSearch">Search</a></li>
+					<li><a href="/redirectToLinkedIn" target="_blank">LinkedIn</a></li>
 				</ul>
 				<!-- navbar -->
 			</div>

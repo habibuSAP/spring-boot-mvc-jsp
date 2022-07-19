@@ -37,6 +37,12 @@ public class HomeController {
         System.out.println("going to registration page");
         return "register";
     }
+
+    @GetMapping("/redirectToLinkedIn")
+    public String redirectOut(){
+        System.out.println("redirecting to LinkedIn");
+        return "redirect:https://www.linkedin.com";
+    }
 /*      Move to global exception handler
 
     @ModelAttribute("newuser")
