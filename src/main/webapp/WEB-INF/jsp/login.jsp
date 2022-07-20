@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
 <link rel="stylesheet" href="css/style.css">
@@ -16,10 +17,10 @@
 				</div>
 				<!-- branding -->
 				<ul class="navbar">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/goToSearch">Search</a></li>
-					<li><a href="/redirectToLinkedIn" target="_blank">LinkedIn</a></li>
-				</ul>
+					<li><a href="/home"><spring:message code="label.home"/></a></li>
+					<li><a href="/goToSearch"><spring:message code="label.search"/></a></li>
+					<li><a href="/redirectToLinkedIn" target="_blank"><spring:message code="label.linkedin"/></a></li>
+				</ul><!-- navbar -->
 				<!-- navbar -->
 			</div>
 			<!-- container nav-elements -->

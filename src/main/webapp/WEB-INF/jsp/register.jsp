@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,9 +19,9 @@
 				</div>
 				<!-- branding -->
 				<ul class="navbar">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/goToSearch">Search</a></li>
-					<li><a href="/redirectToLinkedIn" target="_blank">LinkedIn</a></li>
+					<li><a href="/home"><spring:message code="label.home"/></a></li>
+					<li><a href="/goToSearch"><spring:message code="label.search"/></a></li>
+					<li><a href="/redirectToLinkedIn" target="_blank"><spring:message code="label.linkedin"/></a></li>
 
 				</ul>
 				<!-- navbar -->
@@ -39,24 +40,25 @@
 
 
 	<section id="registration" class="section">
-	 <div class="container tagline">
-	 <em>Register User</em><br/>
-    		 <form:form method="post" action="/registeruser" modelAttribute="newuser">
-    			<label>Username</label> <form:input path="username" type="text" /><form:errors cssClass="error" path="username"/><br/>
-    			<label>Password</label> <form:input path="password" type="password" /><form:errors cssClass="error" path="password"/> <br/>
-    			<label>First Name</label> <form:input path="firstName" type="text" /><form:errors cssClass="error" path="firstName"/><br/>
-    			<label>Last Name</label> <form:input path="lastName" type="text" /><br/>
-    			<label>What do you want to do? </label> 
+		<div class="container tagline">
+			<em>Register User</em><br/>
+			<form:form method="post" action="/registeruser" modelAttribute="newuser">
+				<label>Username</label> <form:input path="username" type="text" /><form:errors cssClass="error" path="username"/><br/>
+				<label>Password</label> <form:input path="password" type="password" /><form:errors cssClass="error" path="password"/> <br/>
+				<label>First Name</label> <form:input path="firstName" type="text" /><form:errors cssClass="error" path="firstName"/><br/>
+				<label>Last Name</label> <form:input path="lastName" type="text" /><br/>
+				<label>What do you want to do? </label>
 				<form:radiobutton path="activity" id="activity" value="sport"/>Play a Sport?
 				<form:radiobutton path="activity" id="activity" value="gym"/>Hit the Gym? <form:errors path="activity" cssClass="error"/><br/>
-    			<label>Date of birth</label>
-    			<form:input path="dateOfBirth" type="date" /><form:errors cssClass="error" path="dateOfBirth"/><br/>
-    			<label>Gender</label>
-    			<form:select path="gender" items="${genderItems}"/>
-    			<br/>
-    			<input type="submit" value="Submit" id="submit">
-    		</form:form>
+				<label>Date of birth</label>
+				<form:input path="dateOfBirth" type="date" /><form:errors cssClass="error" path="dateOfBirth"/><br/>
+				<label>Gender</label>
+				<form:select path="gender" items="${genderItems}"/>
+				<br/>
+				<input type="submit" value="Submit" id="submit">
+			</form:form>
 		</div>
+
 	</section>
 	<footer class="footer">
 		<div class="container">
