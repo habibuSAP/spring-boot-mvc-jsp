@@ -2,6 +2,8 @@ package com.demo.hplus.exceptions;
 
 import com.demo.hplus.models.Login;
 import com.demo.hplus.models.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +21,12 @@ public class ApplicationExceptionGlobalController {
         System.out.println("in global exception handler controller");
         return "error";
     }
+
+    @ExceptionHandler(LoginFailureException.class)
+    public ResponseEntity handleLoginFailure(LoginFailureException ex){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ex.getMessage());
+    }
+
 
     @ModelAttribute("newuser")
     public User getDefaultUser(){
