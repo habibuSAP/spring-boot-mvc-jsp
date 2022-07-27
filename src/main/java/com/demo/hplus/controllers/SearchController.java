@@ -60,7 +60,7 @@ public class SearchController {
     @GetMapping("/search")
     public DeferredResult<String> search(@RequestParam("search") String search, Model model, HttpServletRequest httpServletRequest){
 
-        DeferredResult<String> defererredResult = new DeferredResult<>();
+        DeferredResult<String> deferredResult = new DeferredResult<>();
 
         System.out.println("in search controller");
         System.out.println("search criteria: " + search );
@@ -77,10 +77,10 @@ public class SearchController {
             List<Product> products;
             products = productRepository.searchByName(search);
             model.addAttribute("products", products);
-            defererredResult.setResult("search");
+            deferredResult.setResult("search");
 
         });
-        return defererredResult;
+        return deferredResult;
     }
 
 }
